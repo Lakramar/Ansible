@@ -1,0 +1,17 @@
+---
+- hosts: test
+  become: true
+  tasks:
+  - name: Install the tomcat package
+    package: name=tomcat9 state=latest
+
+  - name: start the tomcat service
+    service: name=tomcat9 state=started
+
+  - name: Deploy Hello world application
+    copy: src=./sample.war dest=/var/lib/tomcat/webapps
+    notify: restart tomcat
+
+  handlers:
+  - name: Restart tomcat
+    service: name=tomcat9 state=restarted

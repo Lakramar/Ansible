@@ -1,0 +1,6 @@
+---
+- hosts: test
+  become: true
+  tasks:
+  - name: Create a user
+    user: name=priya password=priya groups=priya shell=/bin/bash

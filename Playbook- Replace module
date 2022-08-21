@@ -1,0 +1,7 @@
+- hosts: test
+  tasks:
+    - name: Replace example
+      replace:
+        path: /root/sample.txt
+        regexp: "Lakshmi"
+        replace: "Priya"

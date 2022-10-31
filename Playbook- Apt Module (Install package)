@@ -1,0 +1,10 @@
+---
+- name: This is to install packages
+  hosts: new
+  become: true
+  tasks:
+  - name: install package
+    apt:
+      name: git
+      state: installed
+
